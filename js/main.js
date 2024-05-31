@@ -87,15 +87,14 @@
 
    /* final countdown
     * ------------------------------------------------------ */
-    var ssFinalCountdown = function() {
+   (function($) {
+    "use strict";
 
-        var finalDate =  new Date("March 25, 2021 15:37:25").getTime();
-        //-date: "Mar 25 2021",
+    var finalDate = new Date("July 11, 2024 11:00:00").getTime();
 
-        $('.home-content__clock').countdown(finalDate)
-        .on('update.countdown finish.countdown', function(event) {
-
-            var str = '<div class=\"top\"><div class=\"time days\">' +
+    $('.home-content__clock').countdown(finalDate)
+    .on('update.countdown finish.countdown', function(event) {
+        var str = '<div class=\"top\"><div class=\"time days\">' +
                       '%D <span>day%!D</span>' + 
                       '</div></div>' +
                       '<div class=\"time hours\">' +
@@ -105,11 +104,9 @@
                       '<div class=\"time seconds\">' +
                       '%S <span>S</span></div>';
 
-            $(this)
-            .html(event.strftime(str));
-
-        });
-    };
+        $(this).html(event.strftime(str));
+    });
+})(jQuery);
 
 
    /* AjaxChimp
