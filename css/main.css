@@ -50,13 +50,24 @@ html {
 
 }
 
+
+
 html,
 body {
   overflow-x: hidden;
   overflow-y: auto;
   height: 100%;
   margin: 0;
-  padding: 0;
+  z-index: 500;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #111111e2;
+  color: rgba(255, 255, 255, 0.3);
+  padding: 21rem 0 9rem;
+  -webkit-transition: visibility 0s 0.7s;
+  transition: visibility 0s 0.7s;
 }
 
 body {
@@ -76,7 +87,7 @@ body {
  * ## links - (_document-setup.scss)
  * ------------------------------------------------------------------- */
 a {
-  color: #ec008c;
+  color: #ab0102;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -168,6 +179,11 @@ h6, .h6 {
   line-height: 1.385;
   text-transform: uppercase;
   letter-spacing: .16rem;
+}
+
+h2{
+  font-family: "domine-regular", serif;
+  color: #ffffff;
 }
 
 p img {
@@ -371,7 +387,7 @@ ul.disc li::before {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #ec008c;
+  background: #ab0102;
   position: absolute;
   left: -17px;
   top: 11px;
@@ -380,7 +396,7 @@ ul.disc li::before {
 
 dt {
   margin: 0;
-  color: #ec008c;
+  color: #ab0102;
 }
 
 dd {
@@ -505,7 +521,7 @@ form,
 }
 
 .pace .pace-progress {
-  background: #ec008c;
+  background: #ab0102;
   position: fixed;
   z-index: 900;
   top: 0;
@@ -549,7 +565,7 @@ form,
 }
 
 .line-scale-pulse-out > div {
-  background-color: #ec008c;
+  background-color: #ab0102;
   width: 4px;
   height: 35px;
   border-radius: 2px;
@@ -780,7 +796,7 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-  -webkit-text-fill-color: #ec008c;
+  -webkit-text-fill-color: #ab0102;
   transition: background-color 5000s ease-in-out 0s;
 }
 
@@ -839,8 +855,8 @@ button.btn--primary,
 input[type="submit"].btn--primary,
 input[type="reset"].btn--primary,
 input[type="button"].btn--primary {
-  background: #ec008c;
-  border-color: #ec008c;
+  background: #ab0102;
+  border-color: #ab0102;
   color: #FFFFFF;
 }
 
@@ -1066,7 +1082,7 @@ input::-moz-focus-inner {
 }
 
 .stats-tabs li a:hover {
-  color: #ec008c;
+  color: #ab0102;
 }
 
 .stats-tabs li a em {
@@ -1248,8 +1264,8 @@ input::-moz-focus-inner {
 }
 
 .home-logo img {
-  width: 100px;
-  height: 25px;
+  width: 150px;
+  height: 35px;
 }
 
 
@@ -1282,7 +1298,7 @@ input::-moz-focus-inner {
 .home-content h3::before {
   content: "";
   display: block;
-  background-color: rgba(236, 0, 140, 0.6);
+  background-color: #ab0102;
   width: 40px;
   height: 1px;
   position: absolute;
@@ -1330,9 +1346,10 @@ input::-moz-focus-inner {
   font-size: 1.5rem;
   line-height: 3rem;
   padding: 1.2rem 170px 1.2rem 24px;
-  background: rgba(255, 255, 255, 0.05);
+  background: #757575;
   color: #FFFFFF;
   margin-bottom: 1.8rem;
+  border-radius: 15px;
 }
 
 #mc-form input[type="email"]::-webkit-input-placeholder {
@@ -1357,13 +1374,14 @@ input::-moz-focus-inner {
 
 #mc-form input[type=submit] {
   color: #FFFFFF;
-  background: #ec008c;
-  border-color: #ec008c;
+  background: #ab0102;
+  border-color: #ffffff;
   padding: 0 25px;
   margin: 0;
   position: absolute;
   top: 0;
   right: 0;
+  border-radius: 15px;
 }
 
 #mc-form label {
@@ -1419,7 +1437,8 @@ input::-moz-focus-inner {
   display: inline-block;
   font-family: "metropolis-regular", sans-serif;
   letter-spacing: 0;
-  background-color: #ec008c;
+  background-color: #ab0102;
+  border-radius: 10px;
   color: #FFFFFF;
   padding: 9px 12px;
   bottom: 1.3em;
@@ -1429,7 +1448,7 @@ input::-moz-focus-inner {
   display: block;
   width: 1px;
   height: 12rem;
-  background-color: #ec008c;
+  background-color: #ab0102;
   position: absolute;
   right: 84px;
   bottom: 0;
@@ -1488,7 +1507,7 @@ input::-moz-focus-inner {
 
 .home-social span {
   font-size: 1.2rem;
-  color: #ec008c;
+  color: #ab0102;
   right: 6rem;
   opacity: 0;
   visibility: hidden;
@@ -2062,7 +2081,7 @@ html.no-csstransitions .home-content__main {
   content: "";
   width: 80px;
   height: 1px;
-  background-color: rgba(236, 0, 140, 0.6);
+  background-color: #ab0102;
   position: absolute;
   left: 3px;
   top: -3.6rem;
@@ -2072,7 +2091,7 @@ html.no-csstransitions .home-content__main {
   font-family: "metropolis-regular", sans-serif;
   font-size: 1.4rem;
   line-height: 1.286;
-  color: #ec008c;
+  color: #ab0102;
 }
 
 .info-wrapper {
@@ -2164,8 +2183,9 @@ html.no-csstransitions .home-content__main {
  * ------------------------------------------------------------------- */
 .info-toggle {
   z-index: 502;
-  background-color: #000000;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background-color: #4a4a4a;
+  border: 1px solid #757575;
+  border-radius: 10px;
   font-family: "metropolis-medium", sans-serif;
   font-size: 12px;
   text-transform: uppercase;
@@ -2210,7 +2230,7 @@ html.no-csstransitions .home-content__main {
   top: 50%;
   right: auto;
   bottom: auto;
-  background-color: #ec008c;
+  background-color: #ab0102;
   -webkit-transition: background 0.2s ease-in-out;
   transition: background 0.2s ease-in-out;
 }
@@ -2247,7 +2267,7 @@ html.no-csstransitions .home-content__main {
 
 .info-is-visible .info-menu-icon::before,
 .info-is-visible .info-menu-icon::after {
-  background-color: #ec008c;
+  background-color: #ab0102;
   -webkit-transition-delay: 0s, 0.2s;
   transition-delay: 0s, 0.2s;
 }

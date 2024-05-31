@@ -94,7 +94,7 @@
 
     $('.home-content__clock').countdown(finalDate)
     .on('update.countdown finish.countdown', function(event) {
-        var str = '<div class=\"top\"><div class=\"time days\">' +
+        var str = '<div class=\"top\"><div class= \"time days\">' +
                       '%D <span>day%!D</span>' + 
                       '</div></div>' +
                       '<div class=\"time hours\">' +
