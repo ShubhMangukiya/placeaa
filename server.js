@@ -9,17 +9,12 @@ const port = 3000;
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
-// Serve static files from the root directory
-app.use(express.static(path.join(__dirname)));
-
-// Serve the HTML form
-app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
-});
+// Serve static files from the 'public' directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Endpoint to handle email submission and save JSON
 app.post('/save-email', (req, res) => {
-    const newEmailData = req.body;
+    const newEmail = req.body.email; // Assuming the email is sent as { "email": "user@example.com" }
     const filePath = path.join(__dirname, 'emails.json');
 
     // Read existing data from the JSON file
@@ -30,25 +25,30 @@ app.post('/save-email', (req, res) => {
         }
 
         // Parse existing data or start with an empty array
-        let emailDataArray = [];
+        let emails = [];
         if (data) {
-            emailDataArray = JSON.parse(data);
+            emails = JSON.parse(data);
         }
 
-        // Add new email data to the array
-        emailDataArray.push(newEmailData);
+        // Add new email to the array
+        emails.push(newEmail);
 
         // Write updated data back to the JSON file
-        fs.writeFile(filePath, JSON.stringify(emailDataArray, null, 2), (err) => {
+        fs.writeFile(filePath, JSON.stringify(emails, null, 2), (err) => {
             if (err) {
                 console.error(err);
                 return res.status(500).send('Internal Server Error');
             }
+<<<<<<< HEAD
             res.send('Email saved successfully');
+=======
+            res.status(200).send('Email data saved successfully.');
+>>>>>>> d4fff9d30fb3ee015f329af6e1741bc52e8084df
         });
     });
 });
 
+<<<<<<< HEAD
 // Serve the emails.html page
 app.get('/emails', (req, res) => {
     res.sendFile(path.join(__dirname, 'emails.html'));
@@ -63,3 +63,8 @@ app.get('/emails.json', (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
 });
+=======
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+});
+>>>>>>> d4fff9d30fb3ee015f329af6e1741bc52e8084df
