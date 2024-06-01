@@ -2183,7 +2183,6 @@ html.no-csstransitions .home-content__main {
  * ------------------------------------------------------------------- */
 .info-toggle {
   z-index: 502;
-  background-color: #4a4a4a;
   border: 1px solid #757575;
   border-radius: 10px;
   font-family: "metropolis-medium", sans-serif;
@@ -2223,7 +2222,7 @@ html.no-csstransitions .home-content__main {
 .info-menu-icon {
   display: block;
   width: 20px;
-  height: 1px;
+  height: 3px;
   margin-top: -1px;
   position: absolute;
   left: 10px;
