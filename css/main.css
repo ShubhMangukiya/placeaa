@@ -921,7 +921,16 @@ input::-moz-focus-inner {
   padding: 0;
 }
 
+.email-warning {
+  display: none; /* Hide by default */
+  margin-top: 5px; /* Add some space */
+}
 
+.confirmation-message {
+  display: none; /* Hide by default */
+  margin-top: 5px; /* Add some space */
+  color: green; /* Green color for confirmation */
+}
 
 
 /* =================================================================== 
@@ -1336,11 +1345,11 @@ input::-moz-focus-inner {
   position: relative;
 }
 
-#mc-form {
+#emailForm {
   width: 100%;
 }
 
-#mc-form input[type="email"] {
+#emailForm input[type="email"] {
   width: 100%;
   height: 5.4rem;
   font-size: 1.5rem;
@@ -1352,27 +1361,27 @@ input::-moz-focus-inner {
   border-radius: 15px;
 }
 
-#mc-form input[type="email"]::-webkit-input-placeholder {
+#emailForm input[type="email"]::-webkit-input-placeholder {
   color: white;
 }
 
-#mc-form input[type="email"]:-moz-placeholder {
+#emailForm input[type="email"]:-moz-placeholder {
   color: white;
 }
 
-#mc-form input[type="email"]::-moz-placeholder {
+#emailForm input[type="email"]::-moz-placeholder {
   color: white;
 }
 
-#mc-form input[type="email"]:-ms-input-placeholder {
+#emailForm input[type="email"]:-ms-input-placeholder {
   color: white;
 }
 
-#mc-form input[type="email"].placeholder {
+#emailForm input[type="email"].placeholder {
   color: white !important;
 }
 
-#mc-form input[type=submit] {
+#emailForm input[type=submit] {
   color: #FFFFFF;
   background: #ab0102;
   border-color: #ffffff;
@@ -1384,14 +1393,14 @@ input::-moz-focus-inner {
   border-radius: 15px;
 }
 
-#mc-form label {
+#emailForm label {
   color: #FFFFFF;
   font-family: "metropolis-regular", sans-serif;
   font-size: 1.3rem;
   padding: 0 2rem;
 }
 
-#mc-form label i {
+#emailForm label i {
   padding-right: 6px;
 }
 
@@ -1971,12 +1980,12 @@ html.no-csstransitions .home-content__main {
     max-width: 420px;
   }
 
-  #mc-form input[type="email"] {
+  #emailForm input[type="email"] {
     padding: 1.2rem 2rem;
     text-align: center;
   }
 
-  #mc-form input[type=submit] {
+  #emailForm input[type=submit] {
     position: static;
     width: 100%;
     margin-bottom: 1.8rem;
@@ -2206,7 +2215,7 @@ html.no-csstransitions .home-content__main {
 }
 
 .info-toggle::after {
-  content: "More Info";
+  content: "More";
   display: block;
   position: absolute;
   top: 0;
