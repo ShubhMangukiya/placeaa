@@ -51,12 +51,12 @@ function fetchEmails() {
     fetch('emails.json')
         .then(response => response.json())
         .then(data => {
-            const emailList = document.getElementById('emailList');
-            emailList.innerHTML = '';
+            const emailTable = document.getElementById('emailTable');
+            emailTable.innerHTML = ''; // Clear previous table content
             data.forEach(item => {
-                const li = document.createElement('li');
-                li.textContent = item.email;
-                emailList.appendChild(li);
+                const row = emailTable.insertRow(); // Create a new row
+                const cell = row.insertCell(); // Insert a cell in the row
+                cell.textContent = item.email; // Add email to the cell
             });
         })
         .catch(error => {

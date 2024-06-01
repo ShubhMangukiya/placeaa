@@ -44,12 +44,22 @@ app.post('/save-email', (req, res) => {
                 console.error(err);
                 return res.status(500).send('Internal Server Error');
             }
+            res.send('Email saved successfully');
         });
     });
 });
 
+// Serve the emails.html page
 app.get('/emails', (req, res) => {
+    res.sendFile(path.join(__dirname, 'emails.html'));
+});
+
+// Endpoint to serve emails.json
+app.get('/emails.json', (req, res) => {
     const filePath = path.join(__dirname, 'emails.json');
     res.sendFile(filePath);
 });
-module.exports = app;
+
+app.listen(port, () => {
+    console.log(`Server is running on http://localhost:${port}`);
+});
