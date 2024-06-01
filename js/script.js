@@ -46,3 +46,23 @@ function saveEmailAsJson(event) {
 
     return false;
 }
+
+function fetchEmails() {
+    fetch('/emails')
+        .then(response => response.json())
+        .then(data => {
+            const emailList = document.getElementById('emailList');
+            emailList.innerHTML = '';
+            data.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = item.email;
+                emailList.appendChild(li);
+            });
+        })
+        .catch(error => {
+            console.error('Error fetching emails:', error);
+        });
+}
+
+// Fetch emails when the page loads
+window.onload = fetchEmails;

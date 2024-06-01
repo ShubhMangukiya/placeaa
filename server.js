@@ -48,4 +48,8 @@ app.post('/save-email', (req, res) => {
     });
 });
 
+app.get('/emails', (req, res) => {
+    const filePath = path.join(__dirname, 'emails.json');
+    res.sendFile(filePath);
+});
 module.exports = app;
