@@ -4,17 +4,19 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Middleware to parse JSON bodies
 app.use(bodyParser.json());
 
-// Serve static files from the root directory
-app.use(express.static(path.join(__dirname)));
+// Serve static files from the public directory
+const staticPath = path.join(__dirname, 'public');
+app.use(express.static(staticPath));
 
 // Serve the HTML form
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    const indexPath = path.join(staticPath, 'index.html');
+    res.sendFile(indexPath);
 });
 
 // Endpoint to handle email submission and save JSON
@@ -51,7 +53,8 @@ app.post('/save-email', (req, res) => {
 
 // Serve the emails.html page
 app.get('/emails', (req, res) => {
-    res.sendFile(path.join(__dirname, 'emails.html'));
+    const emailsPath = path.join(staticPath, 'emails.html');
+    res.sendFile(emailsPath);
 });
 
 // Endpoint to serve emails.json

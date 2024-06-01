@@ -48,7 +48,7 @@ function saveEmailAsJson(event) {
 }
 
 function fetchEmails() {
-    fetch('emails.json')
+    fetch('/emails.json')
         .then(response => response.json())
         .then(data => {
             const emailTable = document.getElementById('emailTable');
