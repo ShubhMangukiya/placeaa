@@ -44,12 +44,11 @@ app.post('/save-email', (req, res) => {
                 console.error(err);
                 return res.status(500).send('Internal Server Error');
             }
+            res.send('Email saved as JSON');
         });
     });
 });
 
-app.get('/emails', (req, res) => {
-    const filePath = path.join(__dirname, 'emails.json');
-    res.sendFile(filePath);
+app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}/`);
 });
-module.exports = app;

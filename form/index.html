@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Email as JSON</title>
+</head>
+<body>
+    <form id="emailForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br><br>
+        <button type="button" onclick="saveEmailAsJson()">Save Email</button>
+    </form>
+
+    <script>
+        function saveEmailAsJson() {
+            const form = document.getElementById('emailForm');
+            const formData = new FormData(form);
+            const emailObject = {};
+
+            formData.forEach((value, key) => {
+                emailObject[key] = value;
+            });
+
+            fetch('/save-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(emailObject),
+            })
+            .then(response => response.text())
+            .then(data => {
+                alert(data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

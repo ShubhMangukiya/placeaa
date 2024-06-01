@@ -48,15 +48,15 @@ function saveEmailAsJson(event) {
 }
 
 function fetchEmails() {
-    fetch('/emails.json')
+    fetch('emails.json')
         .then(response => response.json())
         .then(data => {
-            const emailTable = document.getElementById('emailTable');
-            emailTable.innerHTML = ''; // Clear previous table content
+            const emailList = document.getElementById('emailList');
+            emailList.innerHTML = '';
             data.forEach(item => {
-                const row = emailTable.insertRow(); // Create a new row
-                const cell = row.insertCell(); // Insert a cell in the row
-                cell.textContent = item.email; // Add email to the cell
+                const li = document.createElement('li');
+                li.textContent = item.email;
+                emailList.appendChild(li);
             });
         })
         .catch(error => {
