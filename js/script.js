@@ -48,7 +48,7 @@ function saveEmailAsJson(event) {
 }
 
 function fetchEmails() {
-    fetch('/emails')
+    fetch('placeaa.com/emails.json')
         .then(response => response.json())
         .then(data => {
             const emailList = document.getElementById('emailList');
