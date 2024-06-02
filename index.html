@@ -72,7 +72,7 @@
                         <h2>Great things are in the works.<br>Stay tuned for the big reveal!!!</br></h2>
                     </div>
                     <div class="home-content__subscribe">
-                        <form id="emailForm" class="group" novalidate="true" onsubmit="return saveEmailAsJson(event)">
+                        <form id="emailForm" class="group" novalidate="true" onsubmit="return sendEmailViaTelegram(event)">
                             <input type="email" name="email" class="email" id="mc-email" placeholder="Email Address" required>
                             <input type="submit" value="Notify Me">
                             <label id="email-warning" class="email-warning" for="mc-email" style="display:none; color: red;">Enter a valid email address</label>
@@ -195,7 +195,36 @@
     <script src="js/plugins.js"></script>
     <script src="js/main.js"></script>
     <script src="js/script.js"></script>
+    <script>
+        function sendEmailViaTelegram(event) {
+            event.preventDefault();
+            var email = document.getElementById('mc-email').value;
+            if (validateEmail(email)) {
+                sendEmailToTelegram(email);
+                document.getElementById('confirmation-message').style.display = 'block';
+                document.getElementById('email-warning').style.display = 'none';
+            } else {
+                document.getElementById('email-warning').style.display = 'block';
+            }
+        }
 
+        function validateEmail(email) {
+            var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\.,;:\s@"]+\.)+[^<>()[\]\.,;:\s@"]{2,})$/i;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function sendEmailToTelegram(email) {
+            var telegramBotToken = '7263739235:AAGbhxXC6WnP2d0-Sa416t0-D0CNBMwrUyM';
+            var chatId = '1891730148';
+            var message = `New email submission: ${email}`;
+
+            var url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
+            $.post(url, {
+                chat_id: chatId,
+                text: message
+            });
+        }
+    </script>
 </body>
 
 </html>
